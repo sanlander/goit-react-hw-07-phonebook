@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
+  display: flex;
+  gap: 24px;
   text-align: center;
-  padding: 0 12px 12px 12px;
+  padding: 24px;
 `;

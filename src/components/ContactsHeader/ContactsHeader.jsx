@@ -1,1 +1,7 @@
-export const ContactsHeader = () => <h2>Contacts</h2>;
+import { Div, Title } from './ContactsHeader.modules';
+
+export const ContactsHeader = () => (
+  <Div>
+    <Title>Contacts</Title>
+  </Div>
+);

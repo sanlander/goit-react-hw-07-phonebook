@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Ul = styled.ul`
+  min-width: 600px;
   display: inline-block;
   margin: 0;
   padding: 0;

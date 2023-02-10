@@ -11,4 +11,5 @@ const filtersSlice = createSlice({
 });
 
 export const { textSearch } = filtersSlice.actions;
+
 export const filtersReducer = filtersSlice.reducer;

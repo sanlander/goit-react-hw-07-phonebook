@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const Div = styled.div`
+  text-align: left;
+`;
+
 export const Label = styled.label`
   font-size: 18px;
   font-weight: 500;
@@ -9,7 +13,6 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid gray;

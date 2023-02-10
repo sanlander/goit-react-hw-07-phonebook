@@ -19,7 +19,6 @@ const initialValues = {
 
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
-  // const contacts = Object.values(useSelector(getContacts)).slice(0, -1);
   const dispatch = useDispatch();
 
   const handleFormSubmit = (values, actions) => {
@@ -38,40 +37,43 @@ export const ContactForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={schema}
-      onSubmit={handleFormSubmit}
-    >
-      <FormBox autoComplete="off">
-        <Label htmlFor="name">
-          Enter your name
+    <div>
+      <h1>Phonebook</h1>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleFormSubmit}
+      >
+        <FormBox autoComplete="off">
+          <Label htmlFor="name">
+            Enter your name
+            <br />
+            <Input
+              id="name"
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+            />
+            <br />
+            <ErrorMessage component={Error} name="name" />
+          </Label>
           <br />
-          <Input
-            id="name"
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-          />
+          <Label htmlFor="phone">
+            Enter your number
+            <br />
+            <Input
+              id="phone"
+              type="tel"
+              name="phone"
+              placeholder="+38 067 122 22 88"
+            />
+            <br />
+            <ErrorMessage component={Error} name="phone" />
+          </Label>
           <br />
-          <ErrorMessage component={Error} name="name" />
-        </Label>
-        <br />
-        <Label htmlFor="phone">
-          Enter your number
-          <br />
-          <Input
-            id="phone"
-            type="tel"
-            name="phone"
-            placeholder="+38 067 122 22 88"
-          />
-          <br />
-          <ErrorMessage component={Error} name="phone" />
-        </Label>
-        <br />
-        <Button type="submit">Add contact</Button>
-      </FormBox>
-    </Formik>
+          <Button type="submit">Add contact</Button>
+        </FormBox>
+      </Formik>
+    </div>
   );
 };
