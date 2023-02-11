@@ -4,8 +4,8 @@ import * as yup from 'yup';
 import 'yup-phone';
 import { Notify } from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { addContacts } from 'redux/contactsReducer';
+import { selectContacts } from 'redux/selectors';
+import { addContact } from '../../redux/operations';
 
 const schema = yup.object().shape({
   name: yup.string().min(2).required('Required field'),
@@ -18,20 +18,22 @@ const initialValues = {
 };
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const handleFormSubmit = (values, actions) => {
-    const submitName = values.name.toLowerCase();
+    const { name, phone } = values;
+    const submitName = name.toLowerCase();
 
     if (contacts.find(({ name }) => submitName === name.toLowerCase())) {
-      Notify.warning(`${values.name} is already in contacts.`, {
+      Notify.warning(`${name} is already in contacts.`, {
         position: 'center-top',
       });
+      
       return;
     }
 
-    dispatch(addContacts(values));
+    dispatch(addContact({ submitName, phone }));
 
     actions.resetForm();
   };

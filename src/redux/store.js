@@ -7,7 +7,4 @@ export const store = configureStore({
     contacts: contactsdReducer,
     filters: filtersReducer,
   },
-
 });
-
-// export const persistor = persistStore(store);

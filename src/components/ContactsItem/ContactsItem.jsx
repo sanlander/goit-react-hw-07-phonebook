@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { deleteContacts } from '../../redux/contactsReducer';
+import { deleteContact } from '../../redux/operations';
 import { DeleteBtn, Div, DivInfo, ItemNumber } from './ContactsItem.modules';
 
 export const ContactsItem = ({ contact, numberItems }) => {
@@ -13,7 +13,7 @@ export const ContactsItem = ({ contact, numberItems }) => {
         {name}, tel: {phone}
       </DivInfo>
       <div>
-        <DeleteBtn type="button" onClick={() => dispatch(deleteContacts(id))}>
+        <DeleteBtn type="button" onClick={() => dispatch(deleteContact(id))}>
           Delete
         </DeleteBtn>
       </div>
